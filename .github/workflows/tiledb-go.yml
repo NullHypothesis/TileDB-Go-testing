@@ -20,6 +20,10 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v4
+    # Install TileDB because we need its C header files.
+    - name: Run TileDB install script
+      run: ./.github/scripts/install_tiledb_linux.sh
+      shell: bash
     - uses: actions/setup-go@v5
       with:
         go-version: stable
